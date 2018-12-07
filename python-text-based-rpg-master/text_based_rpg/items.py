@@ -46,7 +46,7 @@ iron_breastplate = item.Item(
 )
 
 iron_platelegs = item.Item(
-    display_name="Ashton's shorts you couldn't stop glancing at",
+    display_name="Weston's shorts you couldn't stop glancing at",
     type_=item.EQUIPPABLE,
     equip_location="legs",
     effects=[item.ItemEffect(stat="defence", modifier=5), item.ItemEffect(stat="strength", modifier=1), item.ItemEffect(stat="dexterity", modifier=-1)]
