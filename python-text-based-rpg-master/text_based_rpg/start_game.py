@@ -45,7 +45,6 @@ def start_game():
                     "You did it"
                     "Until you realize"
                     "You have class tommorow"
-                    "And this program was spagghetti af"\
                     "Hope you had fun!"
                 ],
                 delay=2
