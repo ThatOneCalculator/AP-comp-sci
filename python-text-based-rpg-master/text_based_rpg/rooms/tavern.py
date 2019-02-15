@@ -64,7 +64,7 @@ def enter(room, player):
                     lines=[
                         "You approach Daniel.",
                         "He looks up at you again. He is still just as bored, and upon further inspection, looks rather down.",
-                        "\"Where is everyone?\" you ask as you sit down on one of the crude wooden barstools.",
+                        "\"Where is everyone?\" you ask as you sit down on one of the uncomfortable chairs.",
                         "\"There's an exam coming up.\"",
                         "\"Why is that?\" you ask, worried.",
                         "\"Kuper is relentless.\"",
