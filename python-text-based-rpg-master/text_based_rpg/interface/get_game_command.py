@@ -12,6 +12,7 @@ _CONSUME_ITEM = "use item"
 _DISCARD_ITEM = "discard item"
 _EQUIP_ITEM = "equip item"
 _UNEQUIP_ITEM = "unequip item"
+_QUIT = "quit"
 
 _BASE_COMMANDS = [
     _MAP,
@@ -21,7 +22,8 @@ _BASE_COMMANDS = [
     _CONSUME_ITEM,
     _DISCARD_ITEM,
     _EQUIP_ITEM,
-    _UNEQUIP_ITEM
+    _UNEQUIP_ITEM,
+    _QUIT
 ]
 
 def get_game_command(player, room, additional_commands=[]):
@@ -77,3 +79,8 @@ def get_game_command(player, room, additional_commands=[]):
 
         if command == _UNEQUIP_ITEM:
             player.unequip_item_interface()
+
+        if command == _QUIT:
+            sure=input("Are you sure? \"Y\" for yes, any other key for no ").upper()
+            if sure=="Y":
+                quit()

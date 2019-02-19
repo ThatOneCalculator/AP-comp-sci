@@ -1,7 +1,7 @@
 from .. import interface
 from ..util import move
 from ..room import Room
-
+import winsound
 map_ = """You are in the class.
 To the east is the center of the class, from where Daniel and Nikita are.
 Goneril Mountain looms in the distance."""
@@ -46,6 +46,8 @@ def enter(room, player):
             )
 
             if npc == "student":
+                winsound.PlaySound(None, winsound.SND_PURGE)
+                winsound.PlaySound("text_based_rpg/mus/AUDIO_ANOTHERHIM.wav", winsound.SND_LOOP + winsound.SND_ASYNC)
                 interface.print_multiple_lines(
                     lines=[
                         "You slowly approach the student.",
@@ -64,6 +66,8 @@ def enter(room, player):
                     delay=4
                 )
                 interface.print_()
+                winsound.PlaySound(None, winsound.SND_PURGE)
+                winsound.PlaySound("text_based_rpg/mus/field_of_hopes", winsound.SND_ASYNC + winsound.SND_LOOP)
                 player.talked_to_cordelia = True
         else:
             place_to_move = move(["middle of class"])

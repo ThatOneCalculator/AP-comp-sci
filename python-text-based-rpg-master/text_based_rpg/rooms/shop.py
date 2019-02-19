@@ -1,10 +1,12 @@
 from .. import interface, items
 from ..util import move
 from ..room import Room
-
+import winsound
 map_ = """You are at Nikita.
 You see the whiteboard in the distance"""
 def enter(room, player):
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("text_based_rpg/mus/tem.wav", winsound.SND_ASYNC)
     if room.has_been_entered_before:
         interface.print_multiple_lines(
             lines=[
@@ -47,9 +49,12 @@ def enter(room, player):
                     lines=[
                         "You approach him.",
                         "He turns around.",
-                        "\"Lol hi want some stuff?\" he says"
-                        "Sure, you say"
-                        "\"That whiteboard may hold the clue to the exam coming up\""
+                        "\"COMMUNISM! Want some stuff?\" he says",
+                        "Sure, you say",
+                        "\"That whiteboard may hold the clue to the exam coming up, and maybe even some stuff about the student samples and documents\"",
+                        "\"Take some stuff!\"",
+                        "You thank him.",
+                        "You can hear him screaming about how the bourgosie is exploiting the proliterat as you walk away",
                     ],
                     delay=4
                 )
@@ -70,7 +75,7 @@ def enter(room, player):
                         items.iron_platelegs
                     ])
 
-                if player.class_ == "archer":
+                if player.class_ == "Caleb":
                     interface.print_multiple_lines(
                         lines=[
                             "Oh, here you go!"
@@ -85,7 +90,7 @@ def enter(room, player):
                         items.cow_hide_legs
                     ])
 
-                if player.class_ == "mage":
+                if player.class_ == "Kainoa":
                     interface.print_multiple_lines(
                         lines=[
                             "Oh, here you go!"

@@ -1,10 +1,15 @@
 from .. import interface
 from ..util import move
 from ..room import Room
+import winsound
+import time
+import os
+import time
 
 map_ = """You are at Daniel's seat."""
 
 def enter(room, player):
+    winsound.PlaySound("text_based_rpg/mus/AUDIO_STORY.wav", winsound.SND_ASYNC + winsound.SND_LOOP)
     talked_to_daniel = False
     talked_to_strange_person = False
 
@@ -51,28 +56,35 @@ def enter(room, player):
                         "They sense you coming, and slowly turn around.",
                         "Their expression is blank and lifeless.",
                         "They utter, in an emotionless voice:",
-                        "\"M y   c o d e   i s   j u s t   f i n e.\"",
-                        "They turn back around. You think it's best not to try and make further conversation.",
                     ],
-                    delay=4
+                    delay=2
                 )
                 interface.print_()
+                winsound.PlaySound(None, winsound.SND_PURGE)
+                winsound.PlaySound("text_based_rpg/mus/w.wav", winsound.SND_ASYNC)
+                interface.print_multiple_lines(
+                    lines=[
+                    "\"M y   c o d e   i s   j u s t   f i n e.\"",
+                "They turn back around. You think it's best not to try and make further conversation."
+                    ],
+                    delay=2.5)
+                winsound.PlaySound("text_based_rpg/mus/AUDIO_STORY.wav", winsound.SND_ASYNC + winsound.SND_LOOP)
                 talked_to_strange_person = True
 
             if npc == "daniel":
                 interface.print_multiple_lines(
                     lines=[
                         "You approach Daniel.",
-                        "He looks up at you again. He is still just as bored, and upon further inspection, looks rather down.",
-                        "\"Where is everyone?\" you ask as you sit down on one of the uncomfortable chairs.",
-                        "\"There's an exam coming up.\"",
-                        "\"Why is that?\" you ask, worried.",
-                        "\"Kuper is relentless.\"",
-                        "Daniel must be able to tell that you're excited, as he says \"A classmate, are we? Your like don't come around these parts very often.\"",
-                        "\"A new student came in here crying a few hours ago, saying she'd seen a Quizlet of sorts. I think I saw her run towards the middle of class. If you want to investigate, you should go talk to her.\"",
-                        "\"If you could get to the bottom of this, you would do all of us a great service.\""
+                    "He looks up at you again. He is still just as bored, and upon further inspection, looks rather down.",
+                    "\"Where is everyone?\" you ask as you sit down on one of the uncomfortable chairs.",
+                    "\"There's an exam coming up.\"",
+                    "\"Why is that?\" you ask, worried.",
+                    "\"Kuper is relentless.\"",
+                    "Daniel must be able to tell that you're excited, as he says \"A classmate, are we? Your like don't come around these parts very often.\"",
+                    "\"A new student came in here crying a few hours ago, saying she'd seen a Quizlet of sorts. I think I saw her run towards the middle of class. If you want to investigate, you should go talk to her.\"",
+                    "\"If you could get to the bottom of this, you would do all of us a great service.\""
                     ],
-                    delay=4
+                    delay=3
                 )
                 interface.print_()
                 talked_to_daniel = True
@@ -80,9 +92,12 @@ def enter(room, player):
             place_to_move = move(["rest of classroom"])
 
             if place_to_move == "rest of classroom":
+                winsound.PlaySound(None, winsound.SND_PURGE)
+                winsound.PlaySound("text_based_rpg/mus/AUDIO_DARKNESS.wav",winsound.SND_FILENAME + winsound.SND_ASYNC + winsound.SND_LOOP)
                 room.has_been_entered_before = True
                 from .center_of_town import room as center_of_town
                 center_of_town.enter(player)
+                
 
 room = Room(
     map_=map_,

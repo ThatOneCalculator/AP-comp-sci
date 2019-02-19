@@ -78,18 +78,18 @@ cow_hide_body = item.Item(
 
 
 ice_staff = item.Item(
-    display_name="C++",
+    display_name="Custom python module",
     type_=item.EQUIPPABLE,
     equip_location="arms",
     effects=[item.ItemEffect(stat="magic", modifier=5), item.ItemEffect(stat="dexterity", modifier=-2)],
     attacks=[
         attack.Attack(
-            name="c++",
-            display_name="C++",
+            name="custom python module",
+            display_name="Custom python module",
             type_=attack.MAGIC,
             damage=3,
             mana_cost=4,
-            description_of_being_used="said it made sense in c"
+            description_of_being_used="installed with pip"
         )
     ]
 )

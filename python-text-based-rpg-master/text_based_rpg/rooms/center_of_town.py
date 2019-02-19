@@ -1,7 +1,7 @@
 from .. import interface
 from ..util import move
 from ..room import Room
-
+import winsound
 map_ = """You are out in the class.
 To your west is the middle of class.
 To the east is Nikita.
@@ -9,6 +9,8 @@ To the south is Daniel.
 The whiteboard looms to the north."""
 
 def enter(room, player):
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("text_based_rpg/mus/field_of_hopes.wav", winsound.SND_ASYNC + winsound.SND_LOOP)
     interface.print_multiple_lines(lines=map_.split("\n"), delay=1)
 
     while True:

@@ -2,13 +2,15 @@ from .. import interface, enemies, items
 from ..util import move, GameOver
 from ..room import Room
 from ..battle import Battle
-
+import winsound
+import random
 map_ = """You are at the second set of desks before the whiteboard.
 It is deserted, for no students dare to sit there.
 Only the whiteboard remains.
 The first set of desks and the outside are behind you."""
 
 def enter(room, player):
+    winsound.PlaySound("text_based_rpg/mus/GALLERY.wav", winsound.SND_FILENAME +winsound.SND_ASYNC + winsound.SND_LOOP)
     if room.has_been_entered_before:
         interface.print_multiple_lines(
             lines=map_.split("\n"),
@@ -27,7 +29,20 @@ def enter(room, player):
             ],
             delay=4
         )
-
+        winsound.PlaySound(None, winsound.SND_PURGE)
+        secret=Random.randint(1,10)
+        if secret==1:
+            winsound.PlaySound("text_based_rpg/mus/Secret1.wav", winsound.SND_FILENAME + winsound.SND_ASYNC + winsound.SND_LOOP)
+            print("Get ready for the fight of your life. Let's go./n/n")
+        elif secret==2 or secret==3:
+            winsound.PlaySound("text_based_rpg/mus/Secret2.wav",winsound.SND_FILENAME + winsound.SND_ASYNC + winsound.SND_LOOP)
+            print("You feel your bad grades rolling down your back. /n/n")
+        elif secret==4 or secret==5:
+            winsound.PlaySound("text_based_rpg/mus/Secret3.wav",winsound.SND_FILENAME + winsound.SND_ASYNC + winsound.SND_LOOP)
+            print("\"It's kill or be killed,\" they said. You're filled with determination.")
+        else:
+            winsound.PlaySound("text_based_rpg/mus/FinalBoss.wav",winsound.SND_FILENAME + winsound.SND_ASYNC + winsound.SND_LOOP)
+            print("You hear Kuper utter the words, \"I can do anything.\". You know you're gonna have a bad time.")
     while True:
         additional_commands = ["attack"]
 
@@ -50,7 +65,7 @@ def enter(room, player):
                 interface.print_multiple_lines(
                     lines=[
                         "You have defeated Ms. Kuper.",
-                        "You are now able to get to the whiteboard."
+                        "You are now able to get to the whiteboard and retrieve the documents."
                     ],
                     delay=4
                 )

@@ -2,11 +2,13 @@ from .. import interface, enemies
 from ..util import move
 from ..room import Room
 from ..battle import Battle
-
+import winsound
 map_ = """You can see the whiteboard.
 To the south is the middle of class."""
 
 def enter(room, player):
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("text_based_rpg/mus/field_of_hopes.wav", winsound.SND_ASYNC + winsound.SND_LOOP)
     if room.has_been_entered_before:
         interface.print_multiple_lines(
             lines=[
@@ -33,7 +35,8 @@ def enter(room, player):
 
         interface.sleep(5)
         interface.print_()
-        
+        winsound.PlaySound(None, winsound.SND_PURGE)
+        winsound.PlaySound("text_based_rpg/mus/field_of_hopes.wav", winsound.SND_ASYNC + winsound.SND_LOOP)
         interface.print_multiple_lines(
             lines=[
                 "Finally, you are at the entrace to the desks before the whiteboard.",

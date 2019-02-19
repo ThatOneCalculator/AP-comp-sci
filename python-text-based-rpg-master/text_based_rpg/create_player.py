@@ -7,7 +7,11 @@ from . import interface
 from .combat_entity import CombatEntity
 from .player import Player
 from . import attack
-
+import winsound
+import time
+import os
+import sys
+from fastprint import pr
 _ENTITY_DISPLAY_NAME = "You"
 _CRITICAL_HIT_CHANCE = 4
 
@@ -73,14 +77,62 @@ def create_player():
     Player
         The Player instance representing the player.
     """
+    wish=input("Do you wish to hear the story? Enter \"N\" to skip or any other key to hear \n\n").upper()
+    if wish!="N":
+      st="""   Once upon a time, 
+   a LEGEND was whispered among shadows...
+   It was a LEGEND of GRADES.
+   It was a LEGEND of STUDENTS.
+   It was a LEGEND of a TASK.
+   It was a LEGEND of a TEST.
+
+   This is the legend of KUPER
+   For millenia STUDENTS and ASSIGNMENTS have lived in balance
+   Bringing peace to the CLASSROOM.
+   But if this harmony were to shatter...
+   A terrible calamity would occur.
+   
+   The students' GRADES will go below a C-,
+   And the teacher will look bad.
+   Then an without explanation...
+   The PARENTS will call the school.
+   Only then shining with hope...
+   Three HEROES appear at CLASSROOMS' edge.
+
+
+   KAINOA
+   CALEB
+   And ZENON.
+
+   Only they can retrieve the RUBRIC
+   And the STUDENT SAMPLES.
+   Only then will balance be restored
+   The curse shall be lifted,
+   And the CLASSROOM saved from destruction.
+   Peace shall return to the land,
+   And the HEROS shall prevail.
+
+
+
+   Once the COLLEGE BOARD-
+   The company that distributes the forms-
+   Helped students in need.
+
+   But recently the website was taken down.
+   And with it there are no COPIES of the DOCUMENTS...
+    """
+      winsound.PlaySound("text_based_rpg/mus/legend.wav", winsound.SND_ASYNC)
+      pr(st, 2.6)
+    winsound.PlaySound("text_based_rpg/mus/AUDIO_DRONE.wav",winsound.SND_ASYNC)
     interface.print_multiple_lines([
         "On your adventure you may be Zenon, Caleb, or Kainoa.",
         "Which do you choose?"
     ])
 
     command = interface.get_command(_CLASSES)
-
+    time.sleep(2)
     interface.print_("You have chosen the role of {}.".format(command))
+    winsound.PlaySound(None, winsound.SND_PURGE)
     interface.print_()
 
     if command == _ZENON:

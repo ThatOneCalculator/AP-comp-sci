@@ -2,15 +2,20 @@
 
 from .combat_entity import CombatEntity
 from . import attack
-
+import winsound
+import time
 def bear():
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("text_based_rpg/mus/battlest.wav", winsound.SND_ASYNC)
+    time.sleep(1)
+    winsound.PlaySound("text_based_rpg/mus/battle.wav", winsound.SND_LOOP + winsound.SND_ASYNC)
     return CombatEntity(
         display_name="Student being normal",
         attacks=[
             attack.Attack(
                 name="common sense",
                 display_name="Common sense",
-                type_=attack.MELEE,
+                type_=attack.MAGIC,
                 damage=2,
                 description_of_being_used="Bruh. It just works.",
                 stamina_cost=4
@@ -18,7 +23,7 @@ def bear():
             attack.Attack(
                 name="ignore",
                 display_name="Ignore",
-                type_=attack.MELEE,
+                type_=attack.RANGED,
                 damage=4,
                 description_of_being_used="they hurt your feelings by ignoring you.",
                 stamina_cost=6
@@ -34,13 +39,17 @@ def bear():
     )
 
 def first_boss():
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("text_based_rpg/mus/battlest.wav", winsound.SND_ASYNC)
+    time.sleep(1)
+    winsound.PlaySound("text_based_rpg/mus/battle.wav", winsound.SND_LOOP + winsound.SND_ASYNC)
     return CombatEntity(
         display_name="Kerria",
         attacks=[
             attack.Attack(
                 name="shyness",
                 display_name="Shyness",
-                type_=attack.MELEE,
+                type_=attack.RANGED,
                 damage=3,
                 description_of_being_used="makes you feel bad for her",
                 stamina_cost=3
@@ -82,7 +91,17 @@ def second_boss():
                 damage=14,
                 description_of_being_used="PAY ATTENTION DURING CLASS!!!",
                 stamina_cost=8
+            ),
+            attack.Attack(
+                name="traceback error",
+                display_name="Traceback error",
+                type_=attack.MELEE,
+                damage=20,
+                description_of_being_used="Your program blew up, now it's gonna be deleted",
+                stamina_cost=5
+
             )
+
         ],
         maximum_health=40,
         maximum_stamina=50,

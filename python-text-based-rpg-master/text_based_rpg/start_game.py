@@ -38,13 +38,15 @@ def start_game():
             )
         else:
             interface.sleep(6)
+            winsound.PlaySound("text_based_rpg/mus/end.wav", winsound.SND_ASYNC)
             interface.print_multiple_lines(
                 lines=[
                     "You beat her"
                     "You have won"
                     "You did it"
                     "Until you realize"
-                    "You have class tommorow"
+                    "The truth..."
+                    "You have class tommorow!!!"
                     "Hope you had fun!"
                 ],
                 delay=2
