@@ -50,11 +50,11 @@ def enter(room, player):
                         "You approach him.",
                         "He turns around.",
                         "\"COMMUNISM! Want some stuff?\" he says",
-                        "Sure, you say",
+                        "\"Sure\", you say",
                         "\"That whiteboard may hold the clue to the exam coming up, and maybe even some stuff about the student samples and documents\"",
                         "\"Take some stuff!\"",
                         "You thank him.",
-                        "You can hear him screaming about how the bourgosie is exploiting the proliterat as you walk away",
+                        "You can hear him screaming about how the bourgeoisie is exploiting the proletariat as you walk away"
                     ],
                     delay=4
                 )
